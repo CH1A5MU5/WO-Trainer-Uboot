@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>Gegenpeilung – Hilfeseite</h1>
+    <p>
+        Die Gegenpeilung, oft auch reziproke Peilung gennat, ist ein so grundlegender Wert, dass er nicht einmal
+        ein eigenes Formelzeichen unter Ubootwachoffizieren hat. Nichtsdestotrotz ist es umso wichtiger, dass Sie jederzeit
+        ohne lange zu rechnen, die Gegenpeilung bestimmen können. Hierzu können Sie folgende Rechenregel verwenden, die das
+        Bestimmen der Gegenpeilung im Kopf stark vereinfacht.
+    </p>
+
+    <p>Für $\mathrm{B_{mn} > 180}$ gilt:</p>
+
+    <div class="formula-block">
+                    <span class="formula">
+                        $$\mathrm{Gegenpeilung = B_{mn} - 180}$$
+                    </span>
+    </div>
+
+    <p>Für $\mathrm{B_{mn} < 180}$ gilt:</p>
+
+    <div class="formula-block">
+                    <span class="formula">
+                        $$\mathrm{Gegenpeilung = B_{mn} + 180}$$
+                    </span>
+    </div>
+
+    <p>Um diese Rechnung zu beschleunigen, nutzen Sie zukünftig die +2/-2 Formel:</p>
+
+    <img src="img/+2-2regel.svg" alt="+2-2Regel" style="max-width:400px; background-color: white">
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>DOT mit 30M Regel – Hilfeseite</h1>
+    <p>
+        Die 30M Regel ist eine einfache Rechenformel zum Abschätzen des DOT bei Winkeln <10°. Die 30M Regel funktioniert
+        unter der Annanhme, dass die Änderung des Sinus bei kleinen Winkeln nahezu konstant ist. Hieraus ergibt sich damit ein
+        proportionaler Zusammenhang zwischen Entfernung $\mathrm{R_m}$, Winkel $\mathrm{B_m}$ und dem $\mathrm{DOT}$.
+    </p>
+
+    <p>
+        Die 30M Regel ist einfach im Kopf zu berechnen. Es ist elementar wichtig, dass Sie beim Anwenden der 30M Regel mit
+        den richtigen Einheiten arbeiten. Sie benötigen die Enterfung in Seemeilen, den Winkel in Grad und erhalten das Ergebnis in Metern.
+    </p>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{DOT[m] = 30 \cdot R_m[nm] \cdot B_{m}[°]}$$
+                        </span>
+    </div>
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

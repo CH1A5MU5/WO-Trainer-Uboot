@@ -1,0 +1,146 @@
+nav {
+
+
+
+
+
+    top: calc(1rem + 2.5rem*0.8 + 20px);
+    left: -10px;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+
+    margin: 0;
+    padding: 5px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: clip;
+    background-color: var(--background-black);
+}
+
+nav button.active {
+    background-color: var(--selected-blue);
+}
+
+nav button:hover {
+    position:relative;
+
+    box-shadow:
+            -3px -3px 6px rgba(0, 0, 0, 0.6),
+            3px 3px 6px rgba(255, 255, 255, 0.4),
+            -2px -2px 5px rgba(255, 255, 255, 0.8) inset;
+    transform: translateY(-1px);
+    transition: all 0.25s ease;
+
+
+}
+
+nav button.minimized:hover {
+    position: relative;
+    left: -10px;
+    width: calc(100% + 10px); /* oder calc(20% + 10px) wie normal? */
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+nav button {
+    position: relative;
+    width: calc(100% + 10px);
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    justify-content: right;
+    padding: 0;
+    gap: 5px;
+    font-family: 'Shentox', sans-serif;
+
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    text-align: right;
+    height: calc(1rem + 2.5rem*0.8 + 10px);
+    border:none;
+
+    box-shadow:
+            -2px -2px 5px rgba(0, 0, 0, 0.5),      /* Tiefe unten rechts */
+            2px 2px 5px rgba(255, 255, 255, 0.3),   /* Licht oben links */
+            2px 2px 5px rgba(255, 255, 255, 0.8) inset;
+    /* Sanfte Übergänge für Hover & Active */
+
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    font-size 0s;
+    left: -10px;
+    background-color: var(--selected-blue);
+
+    color: var(--font-color-white);
+    border-radius: 0 calc((1rem + 2.5rem*0.8 + 10px)) calc((1rem + 2.5rem*0.8 + 10px)) 0;
+    cursor: pointer;
+    flex-shrink: 0;
+
+}
+
+.nav_subbutton {
+    z-index: 1;
+    left: -100%;
+    height: 0;
+    font-size: clamp(0.5em, 1.4vw, 0.7em);
+    line-height: 1em;
+    padding-right: calc(6px / 2);
+    margin-top: -5px;
+    background-color: var(--unselected-grey);
+    gap: 3px;
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;           /* verhindert, dass man klicken kann */
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+font-size 0s;
+}
+
+.nav_subbutton.visible:hover {
+    left: -20px;
+}
+
+.nav_subbutton.visible.active {
+    left: -20px;
+}
+
+.nav_subbutton.visible {
+    /* Sichtbarer Zustand (aktiv) */
+    height: calc((1rem + 2.5rem*0.8 + 10px)/2);
+    left: -50px;
+    margin-top:-3px;
+    margin-right: 50px;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+font-size 0s;
+}
+
+
+nav img{
+    height: calc((1rem + 2.5rem*0.8));
+    padding-right: 5px;
+
+}
+
+nav .icon_submenu {
+    height: calc(100% - 6px);
+    padding: 0;
+
+}
+
+nav button.minimized {
+    position: relative;
+    left: calc(-100% + (1rem + 2.5rem*0.8 ) + 5px);
+    background-color: var(--unselected-grey);
+    width: auto;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Breite nur so breit wie das Icon */
+
+
+}
+
+nav button.minimized .button-text {
+    display: none;             /* Text unsichtbar */
+}
+

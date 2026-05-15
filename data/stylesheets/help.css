@@ -1,0 +1,273 @@
+@font-face{
+    font-family: "Shentox";
+    src: url("../fonts/Shentox-Regular.ttf") format("truetype");
+}
+
+
+.katex, .katex * {
+    /*font-family: 'Courier New', Courier, 'Consolas', monospace !important;*/
+    font-family: 'Shentox','Courier New', monospace !important;
+
+
+
+}
+
+
+
+iframe{
+    width: 50%;
+    height: auto;
+    font-family: 'Shentox','Courier New', monospace !important;
+    overflow: hidden;
+
+}
+
+
+
+
+:root {
+    --background-black: #000000B3;
+    --background-white: #ffffffB3;
+    --font-color-white: #ffffff;
+    --font-color-black: #000000;
+    --selected-blue: #004471;
+    --unselected-grey: #697a88;
+    --unselected-lightgrey: #bec8d7;
+    --alertred: #941100;
+    --alertgreen: #009051;
+    --alertyellow: #929000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;                 /* volle Viewporthöhe */
+
+
+    overflow: hidden;              /* verhindert Body-Scroll */
+
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Shentox',"Arial Narrow", Arial, sans-serif;
+    font-size: 18px;
+    color: var(--font-color-black);
+    background-image: url(../pictures/cd_navy.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0 0;
+    background-size: cover;
+    overflow: clip;
+}
+
+header {
+    display: flex;
+    background-color: var(--background-black);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--font-color-white);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 5px 0 5px;
+    flex-shrink: 0;
+    letter-spacing: -0.05em;
+}
+
+.header_logo {
+    display: flex;
+    gap: 5px;
+}
+
+.header_icon {
+    height: calc(1rem + 2.5rem*0.8);
+    width: auto;
+}
+
+.header_title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--font-color-white);
+    text-align: right;
+    line-height: 0.8;
+}
+
+
+
+content {
+    flex: 1;
+    background-color: var(--background-white);
+    border-radius: 10px;
+    padding: 0 20px;
+    overflow-y: auto;
+    margin: 5px;
+    text-align: justify;        /* Blocksatz für Fließtext */
+    line-height: 1.5;           /* angenehme Lesbarkeit */
+}
+
+/* Überschriften innerhalb des Contents */
+content h1, content h2, content h3 {
+    text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Aufzählungen */
+content ul, content ol {
+    margin: 0;
+    padding-left: 2em;
+    text-align: left;           /* Aufzählungen linksbündig, nicht im Blocksatz */
+}
+
+content li {
+    margin-bottom: 0.25em;
+}
+
+/* Tabellen – gleiche Spaltenbreite (außer bei sehr langem Inhalt, dann Umbruch) */
+content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em auto;
+    font-size: 1em;
+    table-layout: fixed;
+    /*table-layout: fixed;*/    /* Erzwingt gleiche Spaltenbreite */
+}
+content th, content td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;   /* Umbruch bei langen Wörtern */
+}
+content th {
+    background-color: var(--unselected-lightgrey);
+    font-weight: bold;
+}
+/* Falls du manchmal eine Spalte breiter haben willst, kannst du inline style="width: auto;" nutzen,
+
+/* Bilder */
+content img {
+    max-width: 60%;
+    max-height: 300px;
+    height: auto;
+    display: block;
+    padding: 1em;
+    margin: 1em auto;
+    border-radius: 10px;
+    border: 1px solid var(--unselected-lightgrey);
+}
+
+content formula{
+    text-align: center;
+    margin: 1em 0;
+    font-size: 1.2em;
+    background-color: var(--font-color-white);
+
+
+}
+
+content formula div{
+    display: inline-block ;
+    border: 1px solid var(--unselected-lightgrey);
+    border-radius: 10px;
+    text-align: center;
+
+    font-family: monospace;
+
+    padding: 0.2em 0.5em;
+
+}
+
+.image-caption{
+    text-align: justify;
+    padding: 0 20%;
+}
+
+/* Mathematische Formeln – mit normalem Text oder <math>? Hier als Beispiel mit kursiv */
+content .formula {
+    font-family: monospace;
+    background-color: var(--font-color-white);
+    border: 1px solid var(--unselected-lightgrey);
+    padding: 0 1em;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+}
+/* Für größere Formeln als Block */
+content .formula-block {
+    text-align: center;
+    margin: 1em 0;
+    font-size: 1.2em;
+    font-family: monospace;
+}
+
+content .importtant_p{
+    width: 40%;
+    color: white;
+    background-color: var(--selected-blue);
+    padding: 20px;
+    margin: 1em auto;
+    border-radius: 10px;
+
+}
+
+footer {
+    background-color: var(--background-black);
+    color: var(--font-color-white);
+    border-radius: 10px;
+    margin: 0 5px 5px 5px;
+    padding: 0;
+    text-align: center;
+    flex-shrink: 0;
+    height: 30px;
+    display: flex;
+    justify-content: space-between; /* Text links, Button rechts */
+    align-items: center;
+    line-height: 1;
+}
+
+
+/* Optional: Button zum Schließen */
+button.close-btn {
+    font-family: 'Shentox', sans-serif;
+    color: var(--font-color-white);
+    background-color: var(--alertred);
+    border: none;
+    height: 20px;
+    width: 52px;
+    align-items: center;
+    font-size: 0.6em;
+    letter-spacing: -0.05em;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 0;
+    cursor: pointer;
+
+    box-shadow: -1px -1px 2px rgba(0,0,0,0.5), 2px 2px 5px rgba(255,255,255,0.3), 1px 1px 2px rgba(255,255,255,0.8) inset;
+}
+
+button.print-btn {
+    font-family: 'Shentox', sans-serif;
+    color: var(--font-color-white);
+    background-color: var(--alertyellow);
+    border: none;
+    height: 20px;
+    width: 52px;
+    align-items: center;
+    font-size: 0.6em;
+    letter-spacing: -0.05em;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 0;
+    cursor: pointer;
+
+    box-shadow: -1px -1px 2px rgba(0,0,0,0.5), 2px 2px 5px rgba(255,255,255,0.3), 1px 1px 2px rgba(255,255,255,0.8) inset;
+}
+
+button.close-btn:hover {
+    background-color: var(--alertred);
+    box-shadow: -2px -2px 3px rgba(0,0,0,0.6), 3px 3px 6px rgba(255,255,255,0.4), -1px -1px 2px rgba(255,255,255,0.8) inset;
+    transform: translateY(-1px);
+    transition: all 0.25s ease;
+    color: white;
+}

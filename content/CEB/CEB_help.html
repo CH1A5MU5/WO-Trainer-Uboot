@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>CEP Interpretation – Hilfeseite</h1>
+    <p>
+        Die Interpetation des Contact Evaluation Plot (CEP), ist die höchste Kunst des Ubootwachoffiziers. Auch
+        heutzutage wo die Arbeit des WOs sehr gut durch Führungswaffeneinsatzsysteme unterstützt wird, bleibt eine
+        manuelle Interpretation des CEP unerlässlich. Ihre Aufgabe ist es immer, zusätzlich zu allen
+        Anlagen an Bord, das Lagebild in Ihrem Kopf zu halten. Deutsche Uboote sind immer, egal bei welchem Ausfall welcher Anlagen,
+        klar für Sehrohrtiefe. Weiterhin werden Sie bei der Interpretation des CEP alle bisher gelernten Inhalte
+        über die Zusammenhänge von $\mathrm{RSA}$, $\mathrm{TSA}$, und $\mathrm{OSA}$ anwenden.
+    </p>
+    <p><strong>Aufgaben und Funktionen des CEP:</strong></p>
+    <ul>
+        <li>Sammeln aller, das Lagebild betreffenden Informationen</li>
+        <li>Darstellung von Über- und Unterwasserlagebild</li>
+        <li>Hilfsmittel und Grundlage der Entscheidungsfindung für WO und Kdt</li>
+        <li>Möglichkeit zur Zieldatengewinnung</li>
+        <li>rasche Feststellung der Veränderung im Gegnerverhalten</li>
+    </ul>
+
+    <h2>1. Allgemeine Kurveninterpretation</h2>
+    <p>
+        Das CEP stellt eine wesentliche Grundlage der Entscheidungsfindung des Kommandanten im Einsatz dar. Auf dem CEP
+        bzw. auf der Wasserfalldarstellung der Sonar-Anlage werden die relativen Peilbewegungen von Geräuschen und Signalen
+        in Abhängigkeit von der Zeit dargestellt. Das CEP ist ein Diagramm, in dem die rechtweisende Peilung von Zielkontakten
+        zusammen mit der Eigenbootslinie über die Zeit
+        aufgetragen ist. Dabei ist das obere Ende
+        des CEP immer die aktuelle Minute. Alle Spuren im CEP zeigen daher die relative Bewegung der Kontakte im Seegebiet
+        um das Eigenboot an.
+    </p>
+        <img src="img/standard_CEP.svg" alt="Allgemeines CEP" style="max-width: 60%; max-height: 300px;" />
+        <p class="image-caption">Abbildung 1: Die Abbildung zeigt ein CEP. Wie wir direkt erkennen können, bewegt sich der
+            Kontakt relativ zu uns nach rechts. Weiterhin können wir sehen, dass sich der Kontakt zum aktuellen Zeitpunkt
+            in Peilung 360 befindet. Weiterhin war der Kontakt vorher zur Minute 51' noch in Peilung 341. Dies bedeutet,
+            dass der Kontakt im Zeitraum von 11:51 bis 12:00 eine durchschnittliche $\mathrm{\dot{B}}$ von 2,1 $\mathrm{\frac{°}{min}}$
+            hat.
+
+    </p>
+
+    <p>Dieser Zusammenhang wird deutlicher, wenn wir uns diese Situation einmal in einem Lagebildschirm ansehen. Das gezeigte CEP
+    ist hierbei in der folgenden Abbildung als Echtlage dargestellt. </p>
+    <img src="img/real_situation.svg" alt="Allgemeines CEP" style="max-width: 60%; max-height: 300px;" />
+    <p class="image-caption">Abbildung 2: Hier sieht man sowohl das Eigenboot (grau) als den Zielkontakt (blau). Weiterhin
+        ist alle drei Minuten die Eigenbootsposition markiert. Zusätzlich kann man die Veränderung der Peilung des Zielkontaktes
+        über seine Kursvorrausrichtung verfolgen. Diese Daten stimmen genau mit den dargestellten Peilungen aus dem CEP übereinander.
+
+    </p>
+
+    <h2>2. Informationen aus dem CEP</h2>
+    <p>
+        Ihr CEP ist das einzige Lagebildwerkzeug, das Sie benötigen, um Kenntnis über die Position, Kurs und Fahrtwerte aller
+        SONAR Kontakte zu erhalten. In den folgenden Aufgaben werden Sie lernen folgende Informationen nur aus dem CEP abzulesen:
+    </p>
+
+    <ul>
+        <li>Unterschied zwischen anlaufendem und ablaufendem Kurvenverhalten</li>
+        <li>Bug des Gegners</li>
+        <li>CPA</li>
+        <li>Kursmanöver des Gegners</li>
+        <li>Fahrtmanöver des Gegners</li>
+
+    </ul>
+
+    <p> </p>
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

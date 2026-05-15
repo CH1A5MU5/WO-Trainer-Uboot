@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>OSA und TSA – Hilfeseite</h1>
+
+    <h2>Own Speed Across</h2>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{OSA = v_e \cdot \sin{B_m}}$$
+                        </span>
+    </div>
+
+    <p>Das Wichtigste beim Berechnen der OSA ist das Einhalten der Vorzeichenkonventionen. Grundsätzlich werden Sie immer
+    das richtige Ergebnis erhalten, wenn Sie die Schiffsseitenpeilung $\mathrm{B_{mn}}$ einsetzen, jedoch ist es etwas unintuitiv
+    mit Winkeln > 180° den Sinus zu berechnen. Aus diesem Grund nutzen Sie foglenden Merksatz, um immer das richtige Vorzeichen bei
+    der OSA zu gewährleisten.</p>
+
+    <p class="importtant_p">Ist der Gegner links, ist die OSA negativ <br> Ist das Gegner rechts, ist die OSA positiv.</p>
+
+
+    <h2>Target Speed Across</h2>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{TSA = v_d \cdot \sin{I_m}}$$
+                        </span>
+    </div>
+
+    <p>Beim Bestimmen der TSA ist die korrekte Wahl des Vorzeichens zwar genauso wichtig, jedoch machen wir es hier intuitiv richtig.
+    </p>
+
+    <p class="importtant_p">Hat der Gegner Bug link, dann ist die TSA negativ <br> Hat der Gegner Bug rechts, dann ist die TSA positiv</p>
+
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

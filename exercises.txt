@@ -1,0 +1,148 @@
+#### Allgemeine TO DOs:
+
+[ ] Responsives Design
+    [ ] Bei kleiner Bildschirmbreite rückt die Sidenav bis auf 20px
+        automatisch nach recht ein. Sie kommt zurück, wenn man mit der Maus
+        darüber hovert. Auch nach beenden des Hoverns bleibt Sie für 1s stehen
+    [ ] Bei noch kleinerer Bildschirmbreite Positioniert sich das Numpad unterhalb vom
+        normalen content. Buttons kriegen dann eine feste Höhe von 30px.
+[ ] Rechtschreibprüfung
+[ ] Slider zum Einstellen der Größe der Schrift
+[ ] Slider zum Einstellen der Größe des NumPads
+[X] Formelzeichen in allg. Tableaufgaben immer geschlossen rechts
+[X] TIER I II III icons an die aufgaben
+[X] Alle Icons als .webp erstellen
+[X] Werte in Basic Tabelle vertikal mittig zentrieren
+[X] Aufgabenüberschriften mittig ausrichten bei Zeilenumbruch
+[x] Allgemeingültige Reihenfolge für 1936 Aufgaben finden. Prüfen ob dieser Schirtt bei
+    anderen Aufgabentypen ebenfalls notwendig ist.
+[ ] Morphen effekt für Ergebnis
+[X] Zwischenergebnisse bei 1936-Aufgaben
+[ ] Druckerbutton mit Funktion auf jede hilfeseite unten links
+[ ] einfache ifabfragen umformulieren in if (currAngle < 0) currAngle += 360;
+[X] Große Überabreitung der 1936 Aufgaben: Ziel ist immer eine Kursänderung zwischen 30 und 120 Grad nach st oder bb
+    Hierdurch erreichen wir immer mindestens eine DOSA von 1,5. mit einer maximalentfernung von
+[ ] CoD II Zitate in Menuseiten nach Zufallsprinzip einfügen zusammen mit BundeswehrRAW Bildern.
+[ ] LaTex Formeln im Fließtext zu groß, Anpassung in der katex.css durchführen. vorher recherche!!!
+
+
+# Aufgabenübersicht für WO Trainer Uboot
+
+[ ] Menu {MEN}
+Hier will ich eine kurze Beschreibung des Programms machen.
+
+[ ] Distance of Track {DOT}
+    [ ] Rechenschieber {DOT_SLR}
+        DOT einfach mit Rechenschieber ausschieben.
+    [ ] 30M Regel {DOT_30M}
+        Anwenden der 30M auf das Problem des DOT
+    [ ] Kopfrechnen {DOT_KOP}
+        Kopfrechnen mit Ubootsinus
+    [ ] Spacing für Suchfront {DOT_SPC}
+        Hier muss ich noch gucken wie wir das umsetzten wollen.
+
+[ ] Gegnerkurs {GKU}
+    [ ] Gegenpeilung {GKU_GP}
+        Berechnunen der Gegenpeilung als Vorbereitung auf den Gegenkurs
+    [ ] Gegnerkurs am Sehrohr {GKU_PD}
+        Berechnen des Gegnerkurses als Kd = Bmn +-180 -Li
+    [ ] Grenzkurs {GKU_GRE}
+        Grenzkursberechnen als Anlaufend oder Ablaufend sowie bekannte Lage
+
+[ ] Lookintervall {LIV}
+    [ ] Gefahrenkreis {LIV_GK}
+        Allgemeine GK Berechnung
+    [ ] LookIntervall Sehraum {LIV_LIS}
+        Unterschied zwischen Flach und Tiefwasser, Bestimmung Abstand zum Land sowie Sichtweite
+    [ ] LookIntervall Fahrzeug {LIV_LIB}
+        LI allgemein berechnen; es besteht eine Auswahlmöglichkeit welchen GK man trainieren will
+    [ ] LI Trainer {LIV_LIT}
+        Der richtige LI Trainer. Fragt LI auf Zeit ab, wie in der Version, die ich im Kdt Lehrgang erstellt habe.
+    [ ] T1/T2 Verfahren {LIV_T12}
+        Berechnung des T1/T2 Verfahrens. Antwort ist: An der Kdt ich beachsichtige in XXsek wieder hochzugehen.
+
+
+[ ] Quergeschwindigkeit {SPA}}
+    [ ] OSA und TSA {SPA_OSA}
+        Berechnen der Quergeschwindigkeiten
+    [ ] RSA {SPA_RSA}
+
+    [ ] DOSA {SPA_DOSA}
+
+    [ ] CPA {SPA_CPA}
+        Prüfen, ob man den wirklich einfach berechnen kann.
+
+
+
+[ ] Längsgeschwindigkeit {SPL}
+    [ ] OSL und TSL {SPL_OSL}
+        Berechnen der Quergeschwindigkeiten
+    [ ] RSL {SPL_RSL}
+        Berechnen der OSA/TSA und anschließend RSA bzw. für RSL
+    [ ] tCPA {SPL_TCPA}
+        tbd
+
+[ ] 1936 - Verfahren {193}
+    [ ] 1936 - Verfahren am Sehrohr {193_PD}
+        Berechnung als Rm = 1936* RSA/B
+    [ ] 1936 - Bei Kursänderung {193_KA}
+        Berechnung als Rm = 1936* D OSA / D B
+    [ ] 1936 bei stationären Objekten {193_SO}
+        Berechnung als 1936* RSA/B aber vereinfacht mit vd =0
+    [ ] 1936 im CPA {193_CPA}
+
+    [ ] 1936 bei stehender Peilung {193_STE}
+
+    [ ] Kursbestimmung mit 1936 {193_KUR}
+
+
+[ ] Family Tree {FTR}
+    Aufgabe bei der immer ein Wert aus dem Familywert fehlt
+    [ ] RSA Family tree {FTR_RSA}
+
+    [ ] DOSA Family Tree {FTR_OSA}
+
+[ ] CEP Interpretation {CEB}
+    [ ] Kurveninterpretation {CEB_KI}
+    tbd
+    [ ] Manövererkennung {CEB_ME}
+    tbd
+    [ ] Manövererkennung bei Kursänderung {CEB_MEKA}
+    tbd
+
+
+
+[ ] CEP Trainer {CEP}
+    Der Schüler sieht ein CEP und muss selber einen neuen Kurs bestimmen mit dem Ziel anschließend
+    Sowohl Rm als auch Kd zu berechnen.
+    [ ] Basis Trainer {CEP_BAS}
+        Der Schüler sieht das Echtziel und kann Kurs/Fahrt/Peilung und Abstand verändern.
+    [ ] Elite Trainer {CEP_ELI}
+        Zufallskurse in eimem "Octagon". Moment der letzten Eigenkursändeurng wird erkannt. Schüler kriegt Feedback,
+        ob Rechnung richtig oder nicht
+
+
+[ ] PD Trainer {PDT}
+    Platzhalter für die zukunft. Es ist unklar, ob sich dieses Projekt in .js umsetzen lässt.
+
+[ ] Schiffserkennung {SRE}
+    Allgemein eine Einfache Schiffserkennugssoftware. Beim Start wird der Nutzer gefragt, ob er
+    Multiple Choice oder direkte Texteingabe haben will
+    [ ] Alle Flotten {SRE_ALL}
+    [ ] Russische Flotte {SRE_RUS}
+    [ ] Deutsche Floote {SRE_DEU}
+    [ ] Dänische Flotte {SRE_DAN}
+    [ ] Englische Flotte {SRE_ENG}
+    [ ] Franzödische Flotte {SRE_FRA}
+    [ ] Italienische Flotte {SRE_ITA}
+    [ ] Niederländische Flotte {SRE_NDL}
+    [ ] Norwegische Flotte {SRE_NOR}
+    [ ] Polnische Flotte {SRE_POL}
+    [ ] Portugiesische Flotte {SRE_POR}
+    [ ] Schwedische Flotte {SRE_SWE}
+    [ ] Spanische Flotte {SRE_ESP}
+
+[ ] Statistiken {STA}
+    Unklar, ob das jemals umgesetzt wird, wir keine Daten schreiben und auslesen können.
+
+

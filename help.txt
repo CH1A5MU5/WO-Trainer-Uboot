@@ -1,0 +1,132 @@
+
+
+
+# Aufgabenübersicht für WO Trainer Uboot
+
+--->[X] Menu {MEN}
+        Selber: Allg. Programmbeschreibung
+
+[X] Distance of Track {DOT}
+    # Aufteilen und allg einaml überprüfen
+    [X] Rechenschieber {DOT_SLR}
+        von Albrecht
+    [X] 30M Regel {DOT_30M}
+        von Albrecht
+    [ ] Kopfrechnen {DOT_KOP}
+        von Albrecht
+    [X] Spacing für Suchfront {DOT_SPC}
+    SHB Seite 20
+
+
+[X] Gegnerkurs {GKU}
+
+    [X] Gegenpeilung {GKU_GP}
+        selber schreiben
+    [X] Gegnerkurs am Sehrohr {GKU_PD}
+        # SHB I Seite 3
+    [X] Grenzkurs {GKU_GRE}
+        # SHB I Seite 19
+
+
+[X] Lookintervall {LIV}
+    #SHB II Seite 7-9
+    [X] Gefahrenkreis {LIV_GK}
+        # aufteilen
+    [X] LookIntervall Sehraum {LIV_LIS}
+        # aufteilen
+    [X] LookIntervall Fahrzeug {LIV_LIB}
+        # aufteilen
+--->[ ] LI Trainer {LIV_LIT}
+        allg. Systembeschreibung
+    [X] T1/T2 Verfahren {LIV_T12}
+        #T1/T2 Verfahren.pdf (existiert bereits)
+
+
+
+[X] Quergeschwindigkeit {SPA}}
+    [X] OSA und TSA {SPA_OSA}
+        #SHB I 14-15
+    [X] RSA {SPA_RSA}
+        #SHB I 14-15
+    [X] DOSA {SPA_DOSA}
+        #SHB I 14-15
+    [X] CPA {SPA_CPA}
+        Prüfen, ob man den wirklich einfach berechnen kann.
+
+
+
+[X] Längsgeschwindigkeit {SPL}
+    [X] OSL und TSL {SPL_OSL}
+        SHB I S. 29
+    [X] RSL {SPL_RSL}
+        selber schreiben, genauer auf den Zeitraum der Annäherung eingehen
+    [X] tCPA {SPL_TCPA}
+        tbd
+
+[ ] 1936 - Verfahren {193}
+    selber schreiben warum es eigentlich 1936
+    [ ] 1936 - Verfahren am Sehrohr {193_PD}
+        Albrecht: RM = 1936 * RSA/B
+    [ ] 1936 - Bei Kursänderung {193_KA}
+        Albrecht: RM = 1936 *DOSA/DB
+    [X] 1936 bei stationären Objekten {193_SO}
+        SHB II Seite 19
+    [X] 1936 im CPA {193_CPA}
+        SHb I Seite 27
+    [X] 1936 bei stehender Peilung {193_STE}
+        SHB I Seite 20; ggf. die fehlenden vier Fälle ergänzen
+    [ ] Kursbestimmung mit 1936 {193_KUR}
+        Albrecht: Geschichte geht weiter, wir bestimmen den Kurs.
+
+
+[ ] Family Tree {FTR}
+
+    allgmeine erklärungsseite FTR, für alle men und submen gültig
+    [ ] RSA Family tree {FTR_RSA}
+
+    [ ] DOSA Family Tree {FTR_OSA}
+
+[X] CEP Interpretation {CEB}
+    [X] Kurveninterpretation {CEB_KI}
+    tbd
+    [X] Manövererkennung {CEB_ME}
+    tbd
+    [X] Manövererkennung bei Kursänderung {CEB_MEKA}
+    tbd
+
+
+
+[ ] CEP Trainer {CEP}
+    Der Schüler sieht ein CEP und muss selber einen neuen Kurs bestimmen mit dem Ziel anschließend
+    Sowohl Rm als auch Kd zu berechnen.
+    [ ] Basis Trainer {CEP_BAS}
+        Der Schüler sieht das Echtziel und kann Kurs/Fahrt/Peilung und Abstand verändern.
+    [ ] Elite Trainer {CEP_ELI}
+        Zufallskurse in eimem "Octagon". Moment der letzten Eigenkursändeurng wird erkannt. Schüler kriegt Feedback,
+        ob Rechnung richtig oder nicht
+
+
+[ ] PD Trainer {PDT}
+    Platzhalter für die zukunft. Es ist unklar, ob sich dieses Projekt in .js umsetzen lässt.
+
+[ ] Schiffserkennung {SRE}
+    Allgemein eine Einfache Schiffserkennugssoftware. Beim Start wird der Nutzer gefragt, ob er
+    Multiple Choice oder direkte Texteingabe haben will
+    [ ] Alle Flotten {SRE_ALL}
+    [ ] Russische Flotte {SRE_RUS}
+    [ ] Deutsche Floote {SRE_DEU}
+    [ ] Dänische Flotte {SRE_DAN}
+    [ ] Englische Flotte {SRE_ENG}
+    [ ] Franzödische Flotte {SRE_FRA}
+    [ ] Italienische Flotte {SRE_ITA}
+    [ ] Niederländische Flotte {SRE_NDL}
+    [ ] Norwegische Flotte {SRE_NOR}
+    [ ] Polnische Flotte {SRE_POL}
+    [ ] Portugiesische Flotte {SRE_POR}
+    [ ] Schwedische Flotte {SRE_SWE}
+    [ ] Spanische Flotte {SRE_ESP}
+
+[ ] Statistiken {STA}
+    Unklar, ob das jemals umgesetzt wird, wir keine Daten schreiben und auslesen können.
+
+

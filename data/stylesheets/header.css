@@ -1,0 +1,46 @@
+header {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-black);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 2.5rem;
+}
+
+header .header_logo{
+    display: flex;
+    gap: 5px;
+}
+
+header .header_icon {
+    height: calc(1rem + 2.5rem*0.8);
+    width: auto;
+}
+
+header .header_title {
+    display: flex;
+    flex-direction: column;  /* Elemente untereinander */
+    align-items: flex-end;
+    text-align: right;
+    font-size: 2.5rem;
+    line-height: 0.8;
+    font-weight: bold;
+    color: var(--font-color-white);
+    letter-spacing: -0.05em;
+
+
+}
+
+header #version_number {
+    font-weight: normal;
+    text-align-last: right;
+    line-height: 1;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+
+}
+
+

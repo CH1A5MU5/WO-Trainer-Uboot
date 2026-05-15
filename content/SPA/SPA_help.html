@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe – Rechenschieber</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>Quergeschwindigkeit – Hilfeseite</h1>
+    <p>
+        Der Fahrtvektor vom Eigenboot sowie von jedem Fahrzeug im Seegebiet lässt sich in zwei Komponenten zerlegen.
+        Die Quer- und die Längsgeschwindigkeit. Die Längsgeschwindigkeit ist dabei die Geschwindigkeitskomponenten
+        entlang der Peilung zwischen zwei Fahrzeugen. Weitere Informationen zur Längsgeschwindigkeit werden im nächsten Kapitel genauer erläutert.
+        Die Quergeschwindigkeit ist der zweite orthogonale Anteil des Geschwindigkeitsvektors.
+    </p>
+
+    <img src="img/rsa_rsl_allg.svg" alt="RSA & RSL-Allg" />
+    <p class="image-caption">Abbildung 1: Graphische Darstellung der Längsgeschwindigkeit (grün) und der Quergeschwindigkeit (rot) zwischen dem Eigenboot (grau)
+    und einem Gegner (blau). Unsere eigene Quergeschwindigkeit ist die OSA. Die Quergeschwindigkeit des Gegners ist die TSA. </p>
+
+    <p>Wie wir in Abbildung 1 erkennen können stehen die Quergeschwindigkeiten ortogonal auf der Peilungslinie zwischen den
+    Fahrzeugen. Daher geben die Quergeschwindigkeiten die relative Bewegung zwischen zwei Fahrzeugen an. Mit diesem Wissen
+    und der Information über die Bearingrate $\mathrm{\dot{B}}$, die im SONAR immer zur Verfügung steht, kann die Entfernungsbestimmung
+    mit dem 1936-Verfahren durchgeführt werden. Bevor wir jedoch die Entfernung zum Gegner bestimmen, werden wir erstmal in
+    den folgenden Abschnitten das Berechnen der Quergeschwindigkeit ausgibig üben. </p>
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

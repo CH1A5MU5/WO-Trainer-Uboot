@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WO Trainer Uboot</title>
+    <link rel="stylesheet" href="data/stylesheets/mainstyle_body.css" />
+
+    <link rel="stylesheet" href="data/libs/katex/katex.min.css">
+
+    <script src="data/script/index.js"></script>
+    <script src="data/script/navbutton.js"></script>
+    <script src="data/script/slider.js"></script>
+    <script src="data/script/contentLoader.js"></script>
+    <script src="data/script/help.js"></script>
+    <script src="data/script/numpad.js"></script>
+
+    <script src="content/general/generalcontent.js"></script>
+    <script src="content/general/basictable.js"></script>
+    <script src="content/general/multiplechoice.js"></script>
+    <script src="content/general/basicmath.js"></script>
+
+    <script src="content/MEN/MEN.js"></script>
+    <script src="content/DOT/DOT.js"></script>
+    <script src="content/GKU/GKU.js"></script>
+    <script src="content/LIV/LIV.js"></script>
+    <script src="content/LIV/LI_trainer.js"></script>
+    <script src="content/SPA/SPA.js"></script>
+    <script src="content/SPL/SPL.js"></script>
+    <script src="content/193/193.js"></script>
+    <script src="content/193/193_support.js"></script>
+    <script src="content/FTR/FTR.js"></script>
+    <script src="content/FTR/FTR_support.js"></script>
+    <script src="content/CEB/CEB.js"></script>
+
+    <script src="content/CEP/CEP.js"></script>
+    <script src="content/CEP/CEP_support.js"></script>
+    <script src="content/CEP/CEP_engine/svg_support.js"></script>
+    <script src="content/CEP/CEP_engine/CEP_simulation.js"></script>
+    <script src="content/CEP/CEP_engine/svg_ui.js"></script>
+
+    <script defer src="data/libs/katex/katex.min.js"></script>
+    <script defer src="data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+
+</head>
+<body>
+
+    <header>
+        <div class="header_logo">
+            <img src="data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+            <img src="data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+        </div>
+        <div class="header_title">
+            <div>WO-Trainer Uboote</div>
+            <div id="version_number">Version 0.9</div>
+        </div>
+    </header>
+
+    <div class="main-grid">
+
+        <nav>
+            <button class="nav_button" id="MEN">Menu <img class="icon" src="data/pictures/icons/icon_menu.webp"> </button>
+            <button class="nav_button" id="GKU">Gegnerkurs <img class="icon" src="data/pictures/icons/icon_Kd.webp"></button>
+                <button class="nav_subbutton" id="GKU_GP">Gegenpeilung<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="GKU_PD">Gegnerkurs am Sehrohr<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="GKU_GRE">Grenzkurs<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+            <button class="nav_button" id="DOT">Distance of Track <img class="icon" src="data/pictures/icons/icon_dot.webp"></button>
+                <button class="nav_subbutton" id="DOT_SLR">Rechenschieber <img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="DOT_30M">30M Regel<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="DOT_KOP">Kopfrechnen<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="DOT_SPC">Spacing<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+             <button class="nav_button" id="SPA">Speed Across <img class="icon" src="data/pictures/icons/icon_SA.webp"></button>
+                <button class="nav_subbutton" id="SPA_OSA">OSA und TSA<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="SPA_RSA">RSA<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="SPA_DOSA"> &Delta;OSA<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+            <button class="nav_button" id="SPL">Speed Length <img class="icon" src="data/pictures/icons/icon_SL.webp"></button>
+                <button class="nav_subbutton" id="SPL_OSL">OSL und TSL<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="SPL_RSL">RSL<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="SPL_TCPA">tCPA<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_III.webp"></button>
+            <button class="nav_button" id="193">1936-Verfahren <img class="icon" src="data/pictures/icons/icon_1936.webp"></button>
+                <button class="nav_subbutton" id="193_PD">1936-Verfahren am Sehrohr<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="193_KA">1936 in der Kursänderung<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="193_SO">1936 bei stationären Objekten<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="193_CPA">1936 im CPA<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="193_STE">1936 bei stehender Peilung<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+
+                <button class="nav_subbutton" id="193_KUR">Kursbestimmung mit 1936<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_III.webp"></button>
+
+            <button class="nav_button" id="FTR">Family Tree<img class="icon" src="data/pictures/icons/icon_FT.webp"></button>
+                <button class="nav_subbutton" id="FTR_RSA">RSA Family Tree<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_III.webp"></button>
+                <button class="nav_subbutton" id="FTR_OSA">&Delta;OSA Family Tree <img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_III.webp"></button>
+
+
+            <button class="nav_button" id="CEB">CEP Interpretation <img class="icon" src="data/pictures/icons/icon_CEPB.webp"></button>
+                <button class="nav_subbutton" id="CEB_KI">Kurveninterpretation<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="CEB_ME">Manövererkennung<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="CEB_MEKA">Manövererkennung bei Kursänderung<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+
+
+
+            <button class="nav_button" id="CEP">CEP Trainer <img class="icon" src="data/pictures/icons/icon_CEP.webp"></button>
+                <button class="nav_subbutton" id="CEP_BAS">Basis Trainer<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="CEP_ELI">Elite Trainer<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_III.webp"></button>
+
+            <button class="nav_button" id="LIV">Lookinterval <img class="icon" src="data/pictures/icons/icon_LI.webp"></button>
+                <button class="nav_subbutton" id="LIV_GK">Gefahrenkreis<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="LIV_LIS">Lookinterval Seeraum<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="LIV_LIB">Lookinterval Fahrzeug<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+                <button class="nav_subbutton" id="LIV_LIT"> LI Trainer<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_II.webp"></button>
+                <button class="nav_subbutton" id="LIV_T12">T1/T2 Verfahren<img class="icon_submenu" src="data/pictures/icons/submenu/icon_roman_I.webp"></button>
+
+
+
+
+            <button class="nav_button" id="PDT">PD Trainer <img class="icon" src="data/pictures/icons/icon_sub.webp"></button>
+            <button class="nav_button" id="SRE">Schiffserkennung <img class="icon" src="data/pictures/icons/icon_ship.webp"></button>
+                <button class="nav_subbutton" id="SRE_ALL">Alle Flotten</button>
+                <button class="nav_subbutton" id="SRE_RUS">Russische Flotte</button>
+                <button class="nav_subbutton" id="SRE_DEU">Deutsche Flotte</button>
+                <button class="nav_subbutton" id="SRE_DAN">Dänische Flotte</button>
+                <button class="nav_subbutton" id="SRE_ENG">Englische Flotte</button>
+                <button class="nav_subbutton" id="SRE_FRA">Französische Flotte</button>
+                <button class="nav_subbutton" id="SRE_ITA">Italienische Flotte</button>
+                <button class="nav_subbutton" id="SRE_NDL">Niederländische Flotte</button>
+                <button class="nav_subbutton" id="SRE_POL">Polnische Flotte</button>
+                <button class="nav_subbutton" id="SRE_SWE">Schwedische Flotte</button>
+                <button class="nav_subbutton" id="SRE_ESP">Spanische Flotte</button>
+            <button class="nav_button" id="STA">Statistiken <img class="icon" src="data/pictures/icons/icon_stats.webp"></button>
+
+        </nav>
+
+        <div class="right-stack">
+
+            <content>
+
+
+
+            </content>
+
+
+            <footer>
+                <div class="sliderfield">
+                    <img id="slideroben" class="slider" src="data/pictures/slideruler/ruler_oben.png" />
+                    <img id="slidermitte" class="slider" src="data/pictures/slideruler/slider.png" />
+                    <img id="sliderunten" class="slider" src="data/pictures/slideruler/ruler_unten.png" />
+                </div>
+                <div class="always_visible">
+                    <button id="HelpButton">Hilfe</button>
+                    Öffentlich
+                    <button id="SliderToggleButton"><img class="icon" src="data/pictures/slideruler/icon.png"></button>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

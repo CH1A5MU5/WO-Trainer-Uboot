@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe – Rechenschieber</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>OSL und TSL – Hilfeseite</h1>
+
+
+    <h2>Own Speed Length</h2>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{OSL = v_e \cdot \cos{B_m}}$$
+                            $$\mathrm{OSL = v_e \cdot \sin{90°-B_m}}$$
+                        </span>
+    </div>
+
+    <p>Ist der Gegner vorlicher als querab, dann ist die OSL positiv. Ist er achterlicher als Querab, dann ist sie negativ. </p>
+
+
+
+    <h2>Target Speed Length</h2>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{TSL = v_d \cdot \cos{I_m}}$$
+                            $$\mathrm{TSL = v_d \cdot \sin{90°-I_m}}$$
+                        </span>
+    </div>
+
+    <p>Ist der Gegner anlaufend, dann ist die TSL positiv. Ist er ablaufend, dann ist Sie negativ. </p>
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>Resulting Speed Across – Hilfeseite</h1>
+    <p>
+        Die resultierende Quergeschwindigkeit ist die Summe von eigener und Gegnerquergeschwindigkeit. Es gilt somit:
+    </p>
+
+    <div class="formula-block">
+                        <span class="formula">
+                            $$\mathrm{RSA = OSA + TSA}$$
+                        </span>
+    </div>
+
+    <img src="img/rsl.svg" alt="RSA & RSL-Allg" />
+    <p class="image-caption">Abbildung 1: Die RSA in dieser Abbildung ist positiv. Aufgrunddessen zeigt der Vektor der
+    RSA nach rechts vom Eigenboot aus betrachtet. Dies kommt zustande, da die positive TSA größer ist als die negative
+    OSA.</p>
+
+
+    <p>Die RSA hat genauso wie OSA und TSA ein Vorzeichen. Ist die RSA positiv, dann geht die Bearingrate nach rechts und umgekehrt.
+    Ist die RSA zum Beispiel 0, dann  muss auch die Bearingrate 0 sein. Man spricht in diesem Fall von einer stehenden Peilung. </p>
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

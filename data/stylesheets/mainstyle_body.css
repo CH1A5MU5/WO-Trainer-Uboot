@@ -1,0 +1,77 @@
+@import url("../stylesheets/header.css");
+@import url("../stylesheets/footer.css");
+@import url("../stylesheets/content.css");
+@import url("../stylesheets/nav.css");
+@import url("../stylesheets/numpad.css");
+@import url("../stylesheets/svg.css");
+
+@font-face{
+    font-family: "Shentox";
+    src: url("../fonts/Shentox-Regular.ttf") format("truetype");
+}
+
+.katex, .katex * {
+    /*font-family: 'Courier New', Courier, 'Consolas', monospace !important;*/
+    font-family: 'Shentox','Courier New', monospace !important;
+}
+
+:root {
+    --background-black: #000000B3;
+    --background-white: #ffffffB3;
+    --font-color-white: #ffffff;
+    --font-color-black: #000000;
+    --selected-blue: #004471;
+    --unselected-grey: #697a88;
+    --unselected-greytrans: rgba(105, 122, 136, 0.7);
+    --unselected-lightgrey: #bec8d7;
+    --alertred: #941100ff;
+    --alertredtrans: rgba(148, 17, 0, 0.7);
+    --alertgreen: #009051;
+    --alertgreentrans: rgba(0, 144, 81, 0.7);
+    --alertyellow: #929000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;                 /* volle Viewporthöhe */
+
+
+    overflow: hidden;              /* verhindert Body-Scroll */
+
+
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Shentox', "Arial Narrow", Arial, sans-serif;
+    font-size: 18px;
+    color: var(--font-color-black);
+    background-image: url(../pictures/cd_navy.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0 0;
+    background-size: cover;
+    overflow: clip;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 20%) 1fr; /* links: min 200px, max 20%; rechts: Rest */
+    gap: 5px;
+    flex: 1;                       /* nimmt restliche Höhe nach Header */
+    min-height: 0;                 /* wichtig für Overflow der Kinder */
+    margin: 0 5px 5px 5px;
+}
+
+.right-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 0;                 /* wichtig für Content-Overflow */
+}

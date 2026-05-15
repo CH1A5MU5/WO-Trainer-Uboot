@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>DOT mit dem Rechenschieber – Hilfeseite</h1>
+
+    <h2>Einführung in den Rechenschieber</h2>
+
+    <p>
+        Ein Rechenschieber ist eine Art analoger Taschenrechner. Rechenschieber rechnen übrigens immer zu 100% genau.
+        Der Fehler bei der Arbeit mit einem Rechenschieber kommt erst von den mangelnden menschlichen Fähigkeiten beim Ablesen
+        der Skala. Wenn Sie gerade keinen Rechenschieber zur Hand haben, klicken Sie auf den Button rechts unten.
+    </p>
+
+    <p>Der Ubootrechenschieber ist für das 1936-Verfahren optimiert. Dies wird jedoch erst später Teil Ihrer Ausbildung.
+    Unabhängig davon können Sit mit dem Rechenschieber dividieren, multiplizieren sowie den Sinus von einem Winkel bestimmen. Hierzu
+    ist der Rechenschieber von oben nach unten in die vier Zeilen A, B, C und D eingeteilt. </p>
+
+    <img src="img/ruckseite.svg" alt="Ruckseite Rechenschieber, wird noch erstellt" style="width: calc(100% - 2em); max-width: 100%;"/>
+
+    <p class="image-caption">Tabelle 1: Dieses Tableau ist auf der Rückseite von jedem Ubootrechenschieber zu finden. Es enthält alle
+    geometrischen Größen des Ubootfahrens, die wir mit dem Rechenschieber bestimmen können. Doch Wahrschau: Rechnen Sie von Anfang an
+    den Sinus immer im Kopf. Es ist verlockend vom Sinus abhängige Größen wie die OSA oder TSA immer mit dem Rechenschieber zu bestimmen.
+    Jedoch werden Sie spätestens in See feststellen, dass Ihnen dafür die Zeit fehlt. Diese Ausbildung zum Rechenschieber ist eine
+    der wenigen Ausnahmen in denen wir den Rechenschiber zum Bestimmen von Sinus nutzen. Dies dient in aller erster Linie der Familarisierung
+    mit dem Rechenschieber selber. </p>
+
+
+
+
+
+    <h2>Anwendung am DOT</h2>
+
+    <p>Wir in Tabelle 1 dargestellt, können Sie zum Bestimmen des DOT einfach die rote 90 über den aktuellen Abstand
+    zum Objekt schieben. Anschließend lesen Sie unterhalb vom Winkel ($\mathrm{B_m}$ oder $\mathrm{I_m}$) den DOT
+    in der selben Einheit wie die eingestellte Entfernung am Anfang ab. Diese Einstellung erfüllt damit die folgenden
+    Formeln:</p>
+
+    <div class="formula-block">
+                    <span class="formula">
+                        $$\mathrm{DOT = R_m  \cdot  \sin(B_m)}$$
+                        $$\mathrm{DOT = R_m  \cdot  \sin(I_m)}$$
+                    </span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

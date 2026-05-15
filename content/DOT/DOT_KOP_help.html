@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><title>Hilfe – Rechenschieber</title>
+    <link rel="stylesheet" href="../../data/stylesheets/help.css" />
+    <link rel="stylesheet" href="../../data/libs/katex/katex.min.css">
+
+    <script defer src="../../data/libs/katex/katex.min.js"></script>
+    <script defer src="../../data/libs/katex/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true} ] });"></script>
+
+</head>
+<body>
+<header>
+    <div class="header_logo">
+        <img src="../../data/pictures/icons/military/icon_1ug.png" class="header_icon" alt="1.Ubootgeschwader" />
+        <img src="../../data/pictures/icons/military/icon_azu.png" class="header_icon" alt="Ausbildungszentrum Uboote" />
+    </div>
+    <div class="header_title">
+        WO-Trainer Uboote HILFE
+
+    </div>
+
+</header>
+
+<content>
+
+    <h1>DOT im Kopf – Hilfeseite</h1>
+    <p>
+        Übergeordnetes Ziel eines jeden Ubootwachoffiziers sollte es sein, die Berechnungen für den Lagebildaufbau
+        in jeder Situation auch ohne Rechenschieber durchführen zu können. Besonders im PEREX,
+        dem Bonbon des Wachoffiziers kommt es darauf an, den Passierabstand des anlaufenden Fahrzeugs präzise
+        und schnell ohne Rechenschieber am Sehrohr zu berechnen. Folglich muss die DOT Rechnung problemlos
+        im Kopf erfolgen können. Weiterhin sind diese Berechnungen bereits eine gute Vorbereitung für die weiterführenden Aufgaben
+        der Entfernungsbestimmung mit dem 1936-Verfahren. </p>
+    <p>
+       Da natürlich selbst Ubootfahrer nicht wirklich die irrationalen Ergebnisse des Sinus im Kopf berechnen können,
+        wird die Sinustabelle für Ubootfahrer, eine mit Sicherheitspuffer gerundete Rechenhilfe, verwendet.</p>
+     <p> <strong>Lernen Sie diese Werte jetzt unmittlbal auswendig. </strong>
+    </p>
+
+    <table style="width: 45%;">
+        <thead>
+        <tr><th>Winkel</th><th>Sinus</th><th>Ubootsinus</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>0°</td><td>0</td><td>0</td></tr>
+        <tr><td>10°</td><td>0,17</td><td>0,2</td></tr>
+        <tr><td>20°</td><td>0,34</td><td>0,3</td></tr>
+        <tr><td>30°</td><td>0,50</td><td>0,5</td></tr>
+        <tr><td>40°</td><td>0,64</td><td>0,6</td></tr>
+        <tr><td>50°</td><td>0,77</td><td>0,7</td></tr>
+        <tr><td>60°</td><td>0,87</td><td>0,8</td></tr>
+        <tr><td>70°</td><td>0,94</td><td>0,9</td></tr>
+        <tr><td>80°</td><td>0,98</td><td>1</td></tr>
+        <tr><td>90°</td><td>1</td><td>1</td></tr>
+
+        </tbody>
+    </table>
+    <p class="image-caption">Tabelle 1: Sinustabelle für Ubootfahrer. Lernen Sie den Ubootsinus auswendig.
+    </p>
+
+    <p><strong>Beachten Sie:</strong> Bei der Berechnung des Sinus im Kopf werden die Werte der Tabelle nicht interpoliert, sondern
+    der Winkel vorher kaufmännisch gerundet. Hierdurch erzeugen wir zwar einen kleinen Fehler, schaffen aber im
+    Gegenzug ein äußerst schnelles und stressresistentes System zur Berechnung. </p>
+
+
+
+
+
+</content>
+
+<footer>
+    <button class="print-btn" onclick="print()">Drucken...</button>
+    <span>Öffentlich</span>
+    <button class="close-btn" onclick="window.close()">Schließen</button>
+</footer>
+
+</body>
+</html>

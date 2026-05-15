@@ -1,0 +1,126 @@
+#numpad_frame{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    gap: 5px;
+    width: calc(90%);
+    height: calc(90%);
+    padding: 5px;
+    margin: -5px;
+    border-radius: 10px;
+    background-color: var(--unselected-lightgrey);
+    font-size: clamp(1rem, 3vw, 3.5rem);
+    color: white;
+    transition: font-size 0s;
+}
+
+.numpad_row{
+    display: flex;
+
+    height: calc((100% - 30px)/5);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#numpad_display{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--selected-blue);
+    color: white;
+    font-size: 100%;
+
+    border-radius: 10px 10px 0 0;
+
+
+}
+
+#numpad_value{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 66%;
+
+}
+
+#numpad_einheit{
+    display: flex;
+    text-align: right;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 33%;
+}
+
+#numpad_Enter{
+    background-color: var(--alertgreen);
+}
+
+#numpad_Backspace{
+    background-color: var(--alertred);
+}
+
+.numpad_button{
+    display: flex;
+    background-color: var(--selected-blue);
+    border-radius: 10px;
+
+
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 33%;
+    box-shadow:
+            2px 2px 5px rgba(0, 0, 0, 0.5),      /* Tiefe unten rechts */
+            -2px -2px 5px rgba(255, 255, 255, 0.3),   /* Licht oben links */
+            -2px -2px 5px rgba(255, 255, 255, 0.8) inset;
+    /* Sanfte Übergänge für Hover & Active */
+
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+background-color 0s,
+font-size 0s;
+
+
+}
+
+.numpad_button.down{
+    box-shadow:
+
+            3px 3px 6px rgba(255, 255, 255, 0.4),
+            2px 2px 5px rgba(255, 255, 255, 1) inset;
+    transform: translateY(-1px);
+    transition: all 0.25s ease,
+font-size 0s;
+}
+
+.numpad_button:hover{
+    cursor: pointer;
+    transform: translateY(-1px);
+    transition: all 0.25s ease,
+font-size 0s;
+
+}
+
+.numpad_buttonsplitter{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0);
+    gap: 5px;
+    justify-content: space-between ;
+    height: 100%;
+    width: 33%;
+
+
+}
+
+.numpad_buttonsplitter .numpad_button{
+    width: 50%;
+}
+
+.numpad_button:active{}
+
+#numpad_
