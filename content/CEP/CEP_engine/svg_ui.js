@@ -67,7 +67,7 @@ function create_input(side) {
     downside.style.flexDirection = 'row';
     downside.style.flex = '1';
 
-    // Linke Seite (66.66 %) – Kurseingabe
+    // Linke Seite (66,66 %) – Kurseingabe
     const leftside = document.createElement('div');
     leftside.style.width = '66.66666%';
     leftside.style.height = '100%';
@@ -76,7 +76,7 @@ function create_input(side) {
     leftside.style.justifyContent = 'space-between';
     create_course_input(leftside, config.accent, side);
 
-    // Rechte Seite (33.33 %) – Geschwindigkeitseingabe
+    // Rechte Seite (33,33 %) – Geschwindigkeitseingabe
     const rightside = document.createElement('div');
     rightside.style.width = '33.33333%';
     rightside.style.height = '100%';
@@ -100,7 +100,7 @@ function create_input(side) {
 }
 
 function create_real_situation() {
-    // TODO: Implementierung (z. B. Canvas für die reale Situation)
+    // TODO: Implementierung (z.B. Canvas für die reale Situation)
 }
 
 // ==================== SPEZIFISCHE EINGABEHILFEN ====================
@@ -306,7 +306,7 @@ function createDialSVG(parentContainer, accentcolor, initialDeg = 0, side) {
 
     parentContainer.appendChild(svg);
 
-    // Zeiger setzen
+    // Zeiger setzen.
 // Setzt den Zeiger basierend auf Kompasswinkel (N=0°)
     function setPointerAngle(compassDeg) {
         // Kompass → Bildschirm (0°=rechts): screen = (compass - 90) mod 360
@@ -544,11 +544,7 @@ function createSvgElement(tag, attributes = {}, textContent = null) {
 
 // ==================== ANZEIGE AKTUALISIEREN ====================
 function updateTargetDisplay() {
-
-
-
-
-    // Kurse aktualisieren – hier werden die .sollwert-course Elemente gesucht
+    // Kurse aktualisieren – hier werden die ".sollwert-course" Elemente gesucht
     const ownCourseElem = document.querySelector('#own_input .sollwert-course');
     const targetCourseElem = document.querySelector('#target_input .sollwert-course');
 
@@ -564,7 +560,7 @@ function updateTargetDisplay() {
     }
 
 
-    // Geschwindigkeiten aktualisieren – .sollwert-speed Elemente
+    // Geschwindigkeit aktualisieren – ".sollwert-speed" Elemente
     const ownSpeedElem = document.querySelector('#own_input .sollwert-speed');
     const targetSpeedElem = document.querySelector('#target_input .sollwert-speed');
     if (ownSpeedElem) ownSpeedElem.textContent = CEP_v_e_tv.toFixed(1);

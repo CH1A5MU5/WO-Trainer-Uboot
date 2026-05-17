@@ -107,8 +107,27 @@ function add_CEP_buttons() {
             svg.setAttribute('viewBox', `0 0 ${CEP_svg_width} ${CEP_svg_height_max}`);
         }
     });
+    createCustomTooltip();
 }
 
+function createCustomTooltip() {
+    // Tooltip-Container erstellen (falls noch nicht vorhanden)
+    if (document.getElementById('cep-tooltip')) return;
+    const tooltip = document.createElement('div');
+    tooltip.id = 'cep-tooltip';
+    tooltip.style.position = 'fixed';
+    tooltip.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    tooltip.style.color = 'white';
+    tooltip.style.padding = '6px 12px';
+    tooltip.style.borderRadius = '6px';
+    tooltip.style.fontFamily = 'Nippo-Light';
+    tooltip.style.fontSize = '12px';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.zIndex = '10000';
+    tooltip.style.display = 'none';
+    tooltip.style.whiteSpace = 'nowrap';
+    document.body.appendChild(tooltip);
+}
 /* -------------------------------------------------------------------------- */
 /* Hilfsfunktion: farbigen Abschnitt auf der x-Achse zeichnen, mit Umbruch     */
 /* -------------------------------------------------------------------------- */
@@ -190,7 +209,6 @@ function create_CEP_owncourse_colors(svg) {
     const owncourse_color = svg_group('oc_colors');
     const yPos = 90;
     const x_cc = bearing_to_x_coordinate(current_course);
-    const x_oc = bearing_to_x_coordinate(opposite_course);
 
     // Roter Bereich (von current bis opposite in Fahrtrichtung)
     const redSegments = drawBearingSegment(svg, current_course, opposite_course, 'var(--alertgreen)', yPos);
@@ -277,74 +295,149 @@ function create_CEP_ownandtargetline(svg) {
     const now = new Date(CEP_data[CEP_data.length - 1][0]);
     const ownLineColor = '#697a88';
     const targetLineColor = '#004471';
-    const ownlineWidth = 5;
-    const targetlineWidth = 10;
-    const maxJump = CEP_abzisse_length * 0.8; // Wenn Sprung größer als 80% der Breite, trennen
+    const maxJump = CEP_abzisse_length * 0.8;
 
     let ownPoints = [];
     let targetPoints = [];
 
+    // Punkte sammeln
     for (let i = 0; i < CEP_data.length; i++) {
         const timestamp = CEP_data[i][0];
-        const ownCourse = CEP_data[i][1];
-        const targetBearing = CEP_data[i][2];
-
         if (now - timestamp <= CEP_ms_on_ordinate) {
+            const ownCourse = CEP_data[i][1];
+            const targetBearing = CEP_data[i][2];
             const ownX = bearing_to_x_coordinate(ownCourse);
             const ownY = time_to_y_coordinte(timestamp) + CEP_svg_start_y;
-            ownPoints.push([ownX, ownY]);
-
+            ownPoints.push({ x: ownX, y: ownY, idx: i });
             const targetX = bearing_to_x_coordinate(targetBearing);
             const targetY = time_to_y_coordinte(timestamp) + CEP_svg_start_y;
-            targetPoints.push([targetX, targetY]);
+            targetPoints.push({ x: targetX, y: targetY, idx: i });
         }
     }
 
-    // Hilfsfunktion: Zeichnet eine Linie mit Unterbrechungen bei großen Sprüngen
-    function drawSplitPolyline(points, color, strokeWidth) {
-        if (points.length < 2) return;
+    // Linien zeichnen (unverändert)
+    function drawSplitPolyline(pointsArr, color, strokeWidth) {
+        if (pointsArr.length < 2) return;
         let startIdx = 0;
-        for (let i = 1; i < points.length; i++) {
-            const xPrev = points[i-1][0];
-            const xCurr = points[i][0];
-            const diff = Math.abs(xCurr - xPrev);
-            if (diff > maxJump) {
-                // Teilstück von startIdx bis i-1 zeichnen
+        for (let i = 1; i < pointsArr.length; i++) {
+            if (Math.abs(pointsArr[i].x - pointsArr[i-1].x) > maxJump) {
                 if (i - startIdx >= 2) {
-                    const segmentPoints = points.slice(startIdx, i);
-                    const pointsString = segmentPoints.map(p => p.join(',')).join(' ');
-                    const polyline = createSvgElement('polyline', {
-                        points: pointsString,
-                        fill: 'none',
-                        stroke: color,
-                        'stroke-width': strokeWidth,
-                        'stroke-linecap': 'round',
-                        'stroke-linejoin': 'round'
-                    });
-                    svg.appendChild(polyline);
+                    const segment = pointsArr.slice(startIdx, i);
+                    const pointsStr = segment.map(p => `${p.x},${p.y}`).join(' ');
+                    svg.appendChild(createSvgElement('polyline', {
+                        points: pointsStr, fill: 'none', stroke: color,
+                        'stroke-width': strokeWidth, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+                    }));
                 }
                 startIdx = i;
             }
         }
-        // Letztes Teilstück
-        if (points.length - startIdx >= 2) {
-            const segmentPoints = points.slice(startIdx);
-            const pointsString = segmentPoints.map(p => p.join(',')).join(' ');
-            const polyline = createSvgElement('polyline', {
-                points: pointsString,
-                fill: 'none',
-                stroke: color,
-                'stroke-width': strokeWidth,
-                'stroke-linecap': 'round',
-                'stroke-linejoin': 'round'
-            });
-            svg.appendChild(polyline);
+        if (pointsArr.length - startIdx >= 2) {
+            const segment = pointsArr.slice(startIdx);
+            const pointsStr = segment.map(p => `${p.x},${p.y}`).join(' ');
+            svg.appendChild(createSvgElement('polyline', {
+                points: pointsStr, fill: 'none', stroke: color,
+                'stroke-width': strokeWidth, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+            }));
         }
     }
 
-    drawSplitPolyline(ownPoints, ownLineColor, ownlineWidth);
-    drawSplitPolyline(targetPoints, targetLineColor, targetlineWidth);
+    drawSplitPolyline(ownPoints, ownLineColor, 5);
+    drawSplitPolyline(targetPoints, targetLineColor, 10);
 
+    // --- Tooltip mit korrekter Koordinatenumrechnung ---
+    if (svg._mouseMoveListener) svg.removeEventListener('mousemove', svg._mouseMoveListener);
+    if (svg._mouseLeaveListener) svg.removeEventListener('mouseleave', svg._mouseLeaveListener);
+
+    createCustomTooltip();
+    const tooltip = document.getElementById('cep-tooltip');
+
+    const HOVER_DISTANCE = 15; // Pixel
+
+    function onMouseMove(e) {
+        const pt = svg.createSVGPoint();
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        const ctm = svg.getScreenCTM();
+        if (!ctm) return;
+        const inverse = ctm.inverse();
+        const svgCoords = pt.matrixTransform(inverse);
+        const mouseX = svgCoords.x;
+        const mouseY = svgCoords.y;
+
+        const rect = svg.getBoundingClientRect();
+        const viewBox = svg.viewBox.baseVal;
+        const scaleX = viewBox.width / rect.width;
+        const threshold = HOVER_DISTANCE * scaleX;
+
+        let bestInfo = null;
+        let bestDist = threshold;
+
+        // Eigene Punkte prüfen (nur Zeit + Kurs)
+        for (let p of ownPoints) {
+            const dx = p.x - mouseX;
+            const dy = p.y - mouseY;
+            const dist = Math.hypot(dx, dy);
+            if (dist < bestDist) {
+                bestDist = dist;
+                const data = CEP_data[p.idx];
+                const timeStr = new Date(data[0]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                bestInfo = `Eigenes Boot<br>Zeit: ${timeStr}<br>Kurs: ${Math.round(data[1])}°`;
+            }
+        }
+
+        // Zielpunkte prüfen (Zeit + Peilung + Peilungsänderung)
+        for (let p of targetPoints) {
+            const dx = p.x - mouseX;
+            const dy = p.y - mouseY;
+            const dist = Math.hypot(dx, dy);
+            if (dist < bestDist) {
+                bestDist = dist;
+                const data = CEP_data[p.idx];
+                const timestamp = data[0];
+                const targetBearing = data[2];
+                const timeStr = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                let info = `Ziel<br>Zeit: ${timeStr}<br>Peilung: ${Math.round(targetBearing)}°`;
+
+                // Peilungsänderung zum Vorgänger berechnen (falls vorhanden)
+                if (p.idx > 0) {
+                    const prevData = CEP_data[p.idx - 1];
+                    const prevTimestamp = prevData[0];
+                    const prevBearing = prevData[2];
+                    const timeDiffMinutes = (timestamp - prevTimestamp) / 60000;
+                    if (timeDiffMinutes > 0) {
+                        let bearingDiff = targetBearing - prevBearing;
+                        // kürzesten Weg über 0°-Grenze
+                        if (bearingDiff > 180) bearingDiff -= 360;
+                        if (bearingDiff < -180) bearingDiff += 360;
+                        const bearingRate = bearingDiff / timeDiffMinutes;
+                        info += `<br>Peilungsänderung: ${bearingRate.toFixed(1)} °/min`;
+                    }
+                }
+                bestInfo = info;
+            }
+        }
+
+        if (bestInfo) {
+            tooltip.innerHTML = bestInfo;
+            tooltip.style.display = 'block';
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY - 30) + 'px';
+        } else {
+            tooltip.style.display = 'none';
+        }
+    }
+
+    function onMouseLeave() {
+        tooltip.style.display = 'none';
+    }
+
+    svg.addEventListener('mousemove', onMouseMove);
+    svg.addEventListener('mouseleave', onMouseLeave);
+    svg._mouseMoveListener = onMouseMove;
+    svg._mouseLeaveListener = onMouseLeave;
+
+    svg.style.cursor = 'crosshair';
     return svg;
 }
 

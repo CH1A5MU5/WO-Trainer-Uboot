@@ -48,7 +48,9 @@ function update_movement(delta, timestamp) {
     let bearingDeg = bearingRad * 180 / Math.PI;
     if (bearingDeg < 0 ) bearingDeg += 360;
     if (bearingDeg > 360) bearingDeg -= 360;
-    if (bearingDeg === 0) bearingDeg = 360;
+    if (bearingDeg === 0) bearingDeg = 360
+
+    console.log('Distanz_Meter:' + Math.sqrt(dx * dx + dy * dy).toFixed(1) + "m");
 
     console.log("Aktuelle Peilung: " + bearingDeg.toFixed(1) + "°");
 

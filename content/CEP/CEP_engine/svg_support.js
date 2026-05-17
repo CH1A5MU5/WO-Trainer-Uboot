@@ -103,13 +103,17 @@ let lastViewBox = null;
 function update_real_sit() {
     const container = document.getElementById('real_sit_display');
     if (!container) return;
+    container.style.overflow = 'hidden';
 
     while (container.firstChild) container.removeChild(container.firstChild);
 
+    const path = '/../../../data/pictures/icons/CEP_simu/';
+
+
     // Weltpunkte (y gedreht, damit Norden oben)
     const points = [
-        { x: CEP_own_x,    y: -CEP_own_y,    heading: CEP_K_e,   img: 'own_boat.svg' },
-        { x: CEP_target_x, y: -CEP_target_y, heading: CEP_K_d,   img: 'target_boat.svg' }
+        { x: CEP_own_x,    y: -CEP_own_y,    heading: CEP_K_e,   img: path + 'ownboat.svg' },
+        { x: CEP_target_x, y: -CEP_target_y, heading: CEP_K_d,   img: path + 'target.svg' }
     ];
 
     // Bounding Box berechnen (wie gehabt)
@@ -131,7 +135,7 @@ function update_real_sit() {
     minY -= padding;
     maxY += padding;
 
-    const step = 100;
+    const step = 4*914.4;
     minX = Math.floor(minX / step) * step;
     maxX = Math.ceil(maxX / step) * step;
     minY = Math.floor(minY / step) * step;
@@ -147,6 +151,38 @@ function update_real_sit() {
         style: 'background-color: #f0f4f8; border-radius: 10px; position: absolute; top: 0; left: 0;'
     });
     container.style.position = 'relative';
+
+    // --- Gitternetz mit 1000 Yards Abstand (914,4 m) ---
+    const gridSpacing = 914.4; // 1000 yards in Metern
+
+
+
+// Vertikale Linien – beginne vor minX
+    let startX = Math.floor(minX / gridSpacing) * gridSpacing - gridSpacing;
+    for (let x = startX-10*gridSpacing; x <= maxX+10*gridSpacing; x += gridSpacing) {
+        const line = createSvgElement('line', {
+            x1: x, y1: minY-10*gridSpacing,
+            x2: x, y2: maxY+10*gridSpacing,
+            stroke: 'rgba(0,0,0)',   // Dezentes Grau, ändern Sie nach Wunsch
+            'stroke-width': 10,
+            'stroke-dasharray': '4 4'
+        });
+        bgSvg.appendChild(line);
+    }
+
+// Horizontale Linien – beginne vor minY
+    let startY = Math.floor(minY / gridSpacing) * gridSpacing - gridSpacing;
+    for (let y = startY-10*gridSpacing; y <= maxY + 10*gridSpacing; y += gridSpacing) {
+        const line = createSvgElement('line', {
+            x1: minX-10*gridSpacing, y1: y,
+            x2: maxX+10*gridSpacing, y2: y,
+            stroke: 'rgba(0,0,0)',
+            'stroke-width': 10,
+            'stroke-dasharray': '4 4'
+        });
+        bgSvg.appendChild(line);
+    }
+
     container.appendChild(bgSvg);
 
     // Overlay für die Schiffe (absolute Positionierung, feste Bildgröße)
@@ -170,8 +206,8 @@ function update_real_sit() {
     }
 
     // Feste Bildgröße in Pixeln (Breite des Symbols)
-    const SHIP_WIDTH_PX = 45;   // Passt für Ihre SVGs (Breite etwa 119 mm → 45 px ist gut lesbar)
-    const SHIP_HEIGHT_PX = 20;  // Höhe etwa 40 mm → proportional
+    const SHIP_WIDTH_PX = 450;   // Passt für Ihre SVGs (Breite etwa 119 mm → 45 px ist gut lesbar)
+    const SHIP_HEIGHT_PX = 120;  // Höhe etwa 40 mm → proportional
 
     points.forEach(p => {
         const { x: px, y: py } = worldToPixel(p.x, p.y);
@@ -188,5 +224,25 @@ function update_real_sit() {
         img.style.transformOrigin = 'center center';
         overlay.appendChild(img);
     });
+
+    // --- Entfernungsanzeige in Yards (oben rechts) ---
+    const distMeters = Math.hypot(CEP_target_x - CEP_own_x, CEP_target_y - CEP_own_y);
+    const distYards = distMeters / 0.9144;
+    const distanceDiv = document.createElement('div');
+    distanceDiv.textContent = `Entfernung: ${distYards.toFixed(0)} yds`;
+    distanceDiv.style.position = 'absolute';
+    distanceDiv.style.top = '10px';
+    distanceDiv.style.right = '10px';
+    distanceDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    distanceDiv.style.padding = '6px 12px';
+    distanceDiv.style.borderRadius = '8px';
+    distanceDiv.style.fontFamily = 'Nippo-Light';
+    distanceDiv.style.fontSize = '14px';
+    distanceDiv.style.fontWeight = 'normal';
+    distanceDiv.style.border = '1px solid #ccc';
+    distanceDiv.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+    distanceDiv.style.pointerEvents = 'none';
+    distanceDiv.style.zIndex = '10';
+    container.appendChild(distanceDiv);
 }
 

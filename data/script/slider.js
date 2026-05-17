@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ---------- Rechenschieber: mittleres Bild verschieben ----------
-    // ---------- Rechenschieber: mittleres Bild verschieben (max. ±20% der Containerbreite) ----------
+    // ---------- Rechenschieber: Mittleres Bild verschieben (max. ±20 % der Containerbreite) ----------
     const sliderImage = document.getElementById('slidermitte');
     if (sliderImage) {
         const container = document.querySelector('.sliderfield');
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
             let initialTranslate = 0;
             let minTranslate = 0, maxTranslate = 0;
 
-            // Begrenzung: maximal 20% der Containerbreite nach links/rechts
+            // Begrenzung: maximal 20 % der Containerbreite nach links/rechts
             function updateBounds() {
                 const containerWidth = container.getBoundingClientRect().width;
-                const maxOffset = containerWidth * 0.9;   // 20% der Breite
+                const maxOffset = containerWidth * 0.9;   // 20 % der Breite
                 minTranslate = -maxOffset;
                 maxTranslate = maxOffset;
             }

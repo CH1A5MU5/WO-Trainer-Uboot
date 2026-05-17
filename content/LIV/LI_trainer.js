@@ -154,7 +154,7 @@ function show_LI_Trainer_task(){
 }
 
 function show_wait_Number(number, ms = 1000){
-    const Counter = document.getElementById('counter');//Wählt Div des Counter aus
+    const Counter = document.getElementById('counter');//Wählt Div des Counters aus
     Counter.innerText = number;
     return new Promise(resolve => setTimeout(resolve, ms));
 }

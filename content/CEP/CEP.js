@@ -16,7 +16,7 @@ function show_CEP_BAS(){
 
     CEP_own_x = 0; //Position von Eigenboot und Gegner. Karthesisches Koordinatensystem in Meter.
     CEP_own_y = 0;
-    CEP_target_x = 4000;
+    CEP_target_x = 3657.6;
     CEP_target_y = 0;
 
     CEP_data = [];
