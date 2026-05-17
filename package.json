@@ -1,8 +1,8 @@
 {
-  "name": "WOT10",
-  "version": "1.0.0",
+  "name": "WO-Trainer-Uboot",
+  "version": "0.9.0",
   "description": "",
-  "main": "data/script/index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

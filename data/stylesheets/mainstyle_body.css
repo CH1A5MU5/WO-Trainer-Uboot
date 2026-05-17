@@ -4,15 +4,12 @@
 @import url("../stylesheets/nav.css");
 @import url("../stylesheets/numpad.css");
 @import url("../stylesheets/svg.css");
+@import url("../stylesheets/nippo.css");
 
-@font-face{
-    font-family: "Shentox";
-    src: url("../fonts/Shentox-Regular.ttf") format("truetype");
-}
 
 .katex, .katex * {
     /*font-family: 'Courier New', Courier, 'Consolas', monospace !important;*/
-    font-family: 'Shentox','Courier New', monospace !important;
+    font-family: 'Nippo-Light','Courier New', monospace !important;
 }
 
 :root {
@@ -49,7 +46,7 @@ body {
 
     margin: 0;
     padding: 0;
-    font-family: 'Shentox', "Arial Narrow", Arial, sans-serif;
+    font-family: 'Nippo-Light', "Arial Narrow", Arial, sans-serif;
     font-size: 18px;
     color: var(--font-color-black);
     background-image: url(../pictures/cd_navy.webp);

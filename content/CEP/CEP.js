@@ -9,6 +9,19 @@ function show_CEP(){
 function show_CEP_BAS(){
     CEP_simulation_running = true;
 
+    CEP_v_e = 0;
+    CEP_K_e = 360;
+    CEP_v_d = 0;
+    CEP_K_d = 360;
+
+    CEP_own_x = 0; //Position von Eigenboot und Gegner. Karthesisches Koordinatensystem in Meter.
+    CEP_own_y = 0;
+    CEP_target_x = 4000;
+    CEP_target_y = 0;
+
+    CEP_data = [];
+    CEP_data.push([new Date (Date.now()), 360, 90]);
+
 
     clean_content();
     make_topdown_flex();
@@ -19,8 +32,9 @@ function show_CEP_BAS(){
 
     add_CEP_buttons();
 
-    generateDemoData();
+    //generateDemoData();
     update_CEP();
+    update_real_sit();
 
 
 

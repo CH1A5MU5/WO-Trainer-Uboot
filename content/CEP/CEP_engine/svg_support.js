@@ -95,3 +95,98 @@ function svg_text(string, x, y,
         "text-anchor": anchor
     }, string);
 }
+
+// ==================== UPDATE REALE SITUATION (SVG) ====================
+// Globale Variablen für letzte ViewBox (am Anfang von CEP.js definieren)
+let lastViewBox = null;
+
+function update_real_sit() {
+    const container = document.getElementById('real_sit_display');
+    if (!container) return;
+
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    // Weltpunkte (y gedreht, damit Norden oben)
+    const points = [
+        { x: CEP_own_x,    y: -CEP_own_y,    heading: CEP_K_e,   img: 'own_boat.svg' },
+        { x: CEP_target_x, y: -CEP_target_y, heading: CEP_K_d,   img: 'target_boat.svg' }
+    ];
+
+    // Bounding Box berechnen (wie gehabt)
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    points.forEach(p => {
+        minX = Math.min(minX, p.x);
+        maxX = Math.max(maxX, p.x);
+        minY = Math.min(minY, p.y);
+        maxY = Math.max(maxY, p.y);
+    });
+    if (minX === maxX) { minX -= 100; maxX += 100; }
+    if (minY === maxY) { minY -= 100; maxY += 100; }
+
+    let dx = maxX - minX;
+    let dy = maxY - minY;
+    let padding = Math.max(0.2 * Math.max(dx, dy), 200);
+    minX -= padding;
+    maxX += padding;
+    minY -= padding;
+    maxY += padding;
+
+    const step = 100;
+    minX = Math.floor(minX / step) * step;
+    maxX = Math.ceil(maxX / step) * step;
+    minY = Math.floor(minY / step) * step;
+    maxY = Math.ceil(maxY / step) * step;
+    const viewWidth  = maxX - minX;
+    const viewHeight = maxY - minY;
+
+    // Hintergrund-SVG (nur Karte)
+    const bgSvg = createSvgElement('svg', {
+        width: '100%',
+        height: '100%',
+        viewBox: `${minX} ${minY} ${viewWidth} ${viewHeight}`,
+        style: 'background-color: #f0f4f8; border-radius: 10px; position: absolute; top: 0; left: 0;'
+    });
+    container.style.position = 'relative';
+    container.appendChild(bgSvg);
+
+    // Overlay für die Schiffe (absolute Positionierung, feste Bildgröße)
+    const overlay = document.createElement('div');
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.pointerEvents = 'none';
+    container.appendChild(overlay);
+
+    const rect = container.getBoundingClientRect();
+    const containerWidth = rect.width;
+    const containerHeight = rect.height;
+
+    function worldToPixel(x, y) {
+        const px = (x - minX) / viewWidth * containerWidth;
+        const py = (y - minY) / viewHeight * containerHeight;
+        return { x: px, y: py };
+    }
+
+    // Feste Bildgröße in Pixeln (Breite des Symbols)
+    const SHIP_WIDTH_PX = 45;   // Passt für Ihre SVGs (Breite etwa 119 mm → 45 px ist gut lesbar)
+    const SHIP_HEIGHT_PX = 20;  // Höhe etwa 40 mm → proportional
+
+    points.forEach(p => {
+        const { x: px, y: py } = worldToPixel(p.x, p.y);
+        const img = document.createElement('img');
+        img.src = p.img;
+        img.style.position = 'absolute';
+        img.style.left = `${px}px`;
+        img.style.top = `${py}px`;
+        img.style.transform = `translate(-50%, -50%) rotate(${p.heading}deg)`;
+        img.style.width = `${SHIP_WIDTH_PX}px`;
+        img.style.height = `${SHIP_HEIGHT_PX}px`;
+        img.style.pointerEvents = 'none';
+        // Damit der Drehpunkt genau die Bildmitte ist (Ihre Angabe: "Mitte des Rechteckes")
+        img.style.transformOrigin = 'center center';
+        overlay.appendChild(img);
+    });
+}
+

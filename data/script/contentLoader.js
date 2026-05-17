@@ -2,6 +2,7 @@
 
 function loadContentById(buttonId) {
     CEP_simulation_running = false;
+    CEP_data = [];
 
     console.log(`loadContentById aufgerufen mit ID: ${buttonId}`);
     switch (buttonId) {

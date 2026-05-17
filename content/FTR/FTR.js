@@ -84,7 +84,7 @@ function show_FTR_OSA(){
 
     let DB = Math.abs(BR2 - BR1);
 
-    if (DB>0.5 && DB <0.7) alert('DB kleiner 0.5');
+    //if (DB>0.5 && DB <0.7) alert('DB kleiner 0.5');
 
     let R_m = Math.round(1936 * (DOSA / DB));
 

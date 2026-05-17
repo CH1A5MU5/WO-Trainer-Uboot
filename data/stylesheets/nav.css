@@ -53,7 +53,7 @@ nav button {
     justify-content: right;
     padding: 0;
     gap: 5px;
-    font-family: 'Shentox', sans-serif;
+    font-family: 'Nippo-Light', sans-serif;
 
     font-size: clamp(1.1rem, 1.8vw, 1.5rem);
     text-align: right;

@@ -15,7 +15,7 @@ function add_CEP_buttons() {
         options.forEach((optText, i) => {
             const option = document.createElement('option');
             option.innerHTML = optText;
-            // Wert bis zum ersten Leerzeichen, z.B. "5 min" -> "5"
+            // Wert bis zum ersten Leerzeichen, z. B. "5 min" → "5"
             option.value = optText.substring(0, optText.indexOf(' '));
             if (i === selectedIndex) option.selected = true;
             select.appendChild(option);
@@ -110,7 +110,7 @@ function add_CEP_buttons() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Hilfsfunktion: farbigen Abschnitt auf der X-Achse zeichnen, mit Umbruch     */
+/* Hilfsfunktion: farbigen Abschnitt auf der x-Achse zeichnen, mit Umbruch     */
 /* -------------------------------------------------------------------------- */
 function drawBearingSegment(svg, fromBearing, toBearing, color, yPos) {
     const x_min = CEP_svg_start_x;
@@ -157,6 +157,7 @@ function update_CEP() {
     svg = create_CEP_badsector_colors(svg);
     svg = create_CEP_abzisse(svg);
     svg = create_CEP_owncourse_colors(svg);
+    svg = create_CEP_ownandtargetline(svg);
 
     body_top.appendChild(svg);
 }
@@ -192,9 +193,9 @@ function create_CEP_owncourse_colors(svg) {
     const x_oc = bearing_to_x_coordinate(opposite_course);
 
     // Roter Bereich (von current bis opposite in Fahrtrichtung)
-    const redSegments = drawBearingSegment(svg, current_course, opposite_course, 'var(--alertred)', yPos);
+    const redSegments = drawBearingSegment(svg, current_course, opposite_course, 'var(--alertgreen)', yPos);
     // Grüner Bereich (von opposite zurück zu current)
-    const greenSegments = drawBearingSegment(svg, opposite_course, current_course, 'var(--alertgreen)', yPos);
+    const greenSegments = drawBearingSegment(svg, opposite_course, current_course, 'var(--alertred)', yPos);
 
     const triangle = svg_triangle(x_cc, yPos + CEP_svg_marker_width / 2, CEP_svg_marker_width + 10);
 
@@ -269,6 +270,81 @@ function create_CEP_abzisse(svg) {
     abzisse.id = 'CEP_abzisse';
 
     svg.appendChild(abzisse);
+    return svg;
+}
+
+function create_CEP_ownandtargetline(svg) {
+    const now = new Date(CEP_data[CEP_data.length - 1][0]);
+    const ownLineColor = '#697a88';
+    const targetLineColor = '#004471';
+    const ownlineWidth = 5;
+    const targetlineWidth = 10;
+    const maxJump = CEP_abzisse_length * 0.8; // Wenn Sprung größer als 80% der Breite, trennen
+
+    let ownPoints = [];
+    let targetPoints = [];
+
+    for (let i = 0; i < CEP_data.length; i++) {
+        const timestamp = CEP_data[i][0];
+        const ownCourse = CEP_data[i][1];
+        const targetBearing = CEP_data[i][2];
+
+        if (now - timestamp <= CEP_ms_on_ordinate) {
+            const ownX = bearing_to_x_coordinate(ownCourse);
+            const ownY = time_to_y_coordinte(timestamp) + CEP_svg_start_y;
+            ownPoints.push([ownX, ownY]);
+
+            const targetX = bearing_to_x_coordinate(targetBearing);
+            const targetY = time_to_y_coordinte(timestamp) + CEP_svg_start_y;
+            targetPoints.push([targetX, targetY]);
+        }
+    }
+
+    // Hilfsfunktion: Zeichnet eine Linie mit Unterbrechungen bei großen Sprüngen
+    function drawSplitPolyline(points, color, strokeWidth) {
+        if (points.length < 2) return;
+        let startIdx = 0;
+        for (let i = 1; i < points.length; i++) {
+            const xPrev = points[i-1][0];
+            const xCurr = points[i][0];
+            const diff = Math.abs(xCurr - xPrev);
+            if (diff > maxJump) {
+                // Teilstück von startIdx bis i-1 zeichnen
+                if (i - startIdx >= 2) {
+                    const segmentPoints = points.slice(startIdx, i);
+                    const pointsString = segmentPoints.map(p => p.join(',')).join(' ');
+                    const polyline = createSvgElement('polyline', {
+                        points: pointsString,
+                        fill: 'none',
+                        stroke: color,
+                        'stroke-width': strokeWidth,
+                        'stroke-linecap': 'round',
+                        'stroke-linejoin': 'round'
+                    });
+                    svg.appendChild(polyline);
+                }
+                startIdx = i;
+            }
+        }
+        // Letztes Teilstück
+        if (points.length - startIdx >= 2) {
+            const segmentPoints = points.slice(startIdx);
+            const pointsString = segmentPoints.map(p => p.join(',')).join(' ');
+            const polyline = createSvgElement('polyline', {
+                points: pointsString,
+                fill: 'none',
+                stroke: color,
+                'stroke-width': strokeWidth,
+                'stroke-linecap': 'round',
+                'stroke-linejoin': 'round'
+            });
+            svg.appendChild(polyline);
+        }
+    }
+
+    drawSplitPolyline(ownPoints, ownLineColor, ownlineWidth);
+    drawSplitPolyline(targetPoints, targetLineColor, targetlineWidth);
+
     return svg;
 }
 

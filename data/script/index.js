@@ -16,11 +16,23 @@ let CEP_multiplier;
 let CEP_data = [];
 let CEP_ms_on_ordinate;
 let CEP_lastFrameTime;
+let animationId = null;
 
 //Eigen und Gegnerparamter
-let CEP_K_e;
-let CEP_v_e;
+let CEP_K_e_tv; //Zielwerte
+let CEP_v_e_tv;
+let CEP_K_d_tv;
+let CEP_v_d_tv;
 
+let CEP_K_e; //Istwerte
+let CEP_v_e;
+let CEP_K_d;
+let CEP_v_d;
+
+let CEP_own_x;
+let CEP_own_y;
+let CEP_target_x;
+let CEP_target_y;
 
 //Bildschirmeinstellungen CEP_Simulator
 const CEP_svg_width = 3110; //Gesamtbreite des SVG
