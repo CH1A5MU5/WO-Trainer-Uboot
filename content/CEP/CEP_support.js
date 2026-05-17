@@ -27,10 +27,10 @@ function add_CEP_buttons() {
     // Icon-Quelle in Abhängigkeit vom Multiplikator
     function getPlayIconSrc(multiplier) {
         const icons = {
-            '1': '../../data/pictures/icons/CEP_simu/play.svg',
-            '2': '../../data/pictures/icons/CEP_simu/play2.svg',
-            '5': '../../data/pictures/icons/CEP_simu/play5.svg',
-            '10': '../../data/pictures/icons/CEP_simu/play10.svg'
+            '1': 'data/pictures/icons/CEP_simu/play.svg',
+            '2': 'data/pictures/icons/CEP_simu/play2.svg',
+            '5': 'data/pictures/icons/CEP_simu/play5.svg',
+            '10': 'data/pictures/icons/CEP_simu/play10.svg'
         };
         return icons[multiplier] || '';
     }
@@ -47,7 +47,7 @@ function add_CEP_buttons() {
     btn_time.style.justifyContent = 'space-between';
 
     const btn_time_icon = document.createElement('img');
-    btn_time_icon.src = '../../data/pictures/icons/CEP_simu/pause.svg';
+    btn_time_icon.src = 'data/pictures/icons/CEP_simu/pause.svg';
     btn_time_icon.style.maxHeight = '16px';
     btn_time_icon.style.width = '48px';
     btn_time.append(btn_time_icon);
@@ -76,7 +76,7 @@ function add_CEP_buttons() {
     btn_time.addEventListener('click', () => {
         if (CEP_simulation_running) {
             CEP_simulation_running = false;
-            btn_time_icon.src = '../../data/pictures/icons/CEP_simu/pause.svg';
+            btn_time_icon.src = 'data/pictures/icons/CEP_simu/pause.svg';
             pause_simulation();
         } else {
             CEP_simulation_running = true;

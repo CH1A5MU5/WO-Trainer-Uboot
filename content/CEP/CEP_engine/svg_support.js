@@ -101,13 +101,14 @@ function svg_text(string, x, y,
 let lastViewBox = null;
 
 function update_real_sit() {
+
     const container = document.getElementById('real_sit_display');
     if (!container) return;
     container.style.overflow = 'hidden';
 
     while (container.firstChild) container.removeChild(container.firstChild);
 
-    const path = '/../../../data/pictures/icons/CEP_simu/';
+    const path = 'data/pictures/icons/CEP_simu/';
 
 
     // Weltpunkte (y gedreht, damit Norden oben)
